@@ -24,16 +24,17 @@ public class LoginFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
         HttpSession session = request.getSession(false);
-        String loginURI = request.getContextPath() + "/login";
+        String loginURI = request.getContextPath() + "/login.jsp";
+        String loginURI2 = request.getContextPath() + "/LoginServlet";
 
         boolean loggedIn = session != null && session.getAttribute("user") != null;
-        boolean loginRequest = request.getRequestURI().equals(loginURI);
+        boolean loginRequest = request.getRequestURI().equals(loginURI) || request.getRequestURI().equals(loginURI2);
 
-      //  if (loggedIn || loginRequest) {
+        if (loggedIn || loginRequest) {
             chain.doFilter(request, response);
-       // } else {
-           // response.sendRedirect(loginURI);
-       // }
+        } else {
+            response.sendRedirect(loginURI);
+        }
     }
 
 	@Override
