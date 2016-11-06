@@ -1,4 +1,4 @@
-package products.Domain;
+package com.kreatorek.products.Domain;
 
 public class Product {
 	private int id;

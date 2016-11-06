@@ -10,62 +10,69 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type = "text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type = "text/javascript">
-  function validateForm() {
-	    var x = $('#usr').text();
+    function validateForm() {
+	    var regexp = "^[0-9]+(\.[0-9]{1,2})?$";
+	    var x = $('#usr').val();
+	    function WarningAlert(text)
+	    {
+	    	$('body').prepend($('<div class="alert alert-warning">'+
+	  	    	  '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;'+'</' + 'a' + '>'+
+		    	  '<strong>Warning!'+'</' + 'strong' + '>' + text +'</' + 'div>'));
+	    }
+	    
 	    if (x == null || x == "") {
-	    	  <div class="alert alert-warning">
-	    	    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-	    	    <strong>Warning!</strong> Name cannot be empty.
-	    	  </div>
+	    	WarningAlert("Name cannot be empty.");
 	        return false;
 	    }
-	    var x = $('#pri').text();
+	    var x = $('#descp').val();
 	    if (x == null || x == "") {
-	    	  <div class="alert alert-warning">
-	    	    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-	    	    <strong>Warning!</strong> Description cannot be empty.
-	    	  </div>
+	    	WarningAlert("Description cannot be empty.")
 	        return false;
 	    }
-	    var x = $('#descb').text();
+	    var x = $('#pri').val();
+	    
 	    if (x == null || x == "") {
-	    	  <div class="alert alert-warning">
-	    	    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-	    	    <strong>Warning!</strong> Description must be filled.
-	    	  </div>
+	    	WarningAlert("Price cannot be empty.");
 	        return false;
 	    }
+	    if(!x.match(regexp)){
+	    	WarningAlert("Price must be specified in the correct format");
+		    return false;
+	    }
+	    	
 	    $('.alert').each(function (){
 	    	var x = $(this);
 			setTimeout(function () {x.slideUp("slow");},5000);
-	    })
+	    });
 	}
   </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List of all products</title>
 </head>
 <body>
+<div class="container">
     <jsp:useBean id="storage"
-        class="products.Services.StorageService"
+        class="com.kreatorek.products.Services.StorageService"
         scope="application" />
-    <jsp:useBean id="product" class="products.Domain.Product" scope="session" />
+    <jsp:useBean id="product" class="com.kreatorek.products.Domain.Product" scope="session" />
 
-<form action="listAll.jsp" method="post">
+<form action="listAll.jsp" method="post" onsubmit="return validateForm()">
 
 	<div class="form-group">
       <label for="usr">Name:</label>
       <input type="text" name="name" class="form-control" id="usr">
     </div>
     <div class="form-group">
-      <label for="usr">Description:</label>
-      <input type="text" name="description" class="form-control" id="usr">
+      <label for="descp">Description:</label>
+      <input type="text" name="description" class="form-control" id="descp">
     </div>
     <div class="form-group">
-      <label for="usr">Price:</label>
-      <input type="text" name="price" class="form-control" id="usr">
+      <label for="pri">Price:</label>
+      <input type="text" name="price" class="form-control" id="pri">
     </div>
   <button type="submit" value=" OK " class="btn btn-default">Submit</button>
   
 </form>
+</div>
 </body>
 </html>

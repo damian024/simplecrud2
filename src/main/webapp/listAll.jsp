@@ -13,7 +13,7 @@
   function submitForm(id)
   {
 	  var submited = false;
-	  $('#del').find('input[name="id"]').each(function (){
+	  $('.del').find('input[name="id"]').each(function (){
           if($(this).attr("value") == id && !submited){
         	  	submited = true;
 				$(this).parent().submit();
@@ -33,8 +33,8 @@
 </head>
 <body>
 <div class="container">
-<jsp:useBean id="product" class="products.Domain.Product" scope="session" />
-<jsp:useBean id="storage" class="products.Services.StorageService" scope="application" />
+<jsp:useBean id="product" class="com.kreatorek.products.Domain.Product" scope="session" />
+<jsp:useBean id="storage" class="com.kreatorek.products.Services.StorageService" scope="application" />
 <jsp:setProperty name="product" property="*"/>
 
 <c:choose>
@@ -43,13 +43,13 @@
 			<c:when test="${not empty param.id}">
 				<% storage.Modify(product);%>
 				<div class="alert alert-success fade-in">
- 					 <strong>Success!</strong> Product has been added successful.
+ 					 <strong>Success!</strong> Product has been edited successful.
 				</div>
 			</c:when>
 			<c:otherwise>
 				<% storage.Add(product);%>
 				<div class="alert alert-success fade-in">
- 					 <strong>Success!</strong> Product has been edited successful.
+ 					 <strong>Success!</strong> Product has been added successful.
 				</div>
 			</c:otherwise>
 		</c:choose>
@@ -80,7 +80,7 @@
 		<td>${item.getPrice() }</td>
 		<td><a href="modifyForm.jsp?id=${item.getId()}"><img src="http://www.msqq.com/d/file/icon/2014-04-01/e07e2380f4f0cfa74e567228d784f886.png" alt='mod'></a>
 		<a href="javascript:submitForm(${item.getId()})"><img src="https://cdn4.iconfinder.com/data/icons/32x32-free-design-icons/32/Close.png" alt='mod'></a>  
-		<form action="listAll.jsp" method="post" id="del">
+		<form action="listAll.jsp" method="post" class="del">
 			<input type="hidden"  name="id" value="${item.getId()}">
 		</form></td>
 	</tr>

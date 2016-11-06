@@ -1,9 +1,9 @@
-package products.Services;
+package com.kreatorek.products.Services;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import products.Domain.Product;
+import com.kreatorek.products.Domain.Product;
 
 public class StorageService implements IStorageService<Product> {
 	private int id = 0;

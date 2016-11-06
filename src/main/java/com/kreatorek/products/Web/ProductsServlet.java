@@ -1,4 +1,4 @@
-package products.Web;
+package com.kreatorek.products.Web;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
