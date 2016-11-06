@@ -9,6 +9,38 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type = "text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type = "text/javascript">
+  function validateForm() {
+	    var x = $('#usr').text();
+	    if (x == null || x == "") {
+	    	  <div class="alert alert-warning">
+	    	    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	    	    <strong>Warning!</strong> Name cannot be empty.
+	    	  </div>
+	        return false;
+	    }
+	    var x = $('#pri').text();
+	    if (x == null || x == "") {
+	    	  <div class="alert alert-warning">
+	    	    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	    	    <strong>Warning!</strong> Description cannot be empty.
+	    	  </div>
+	        return false;
+	    }
+	    var x = $('#descb').text();
+	    if (x == null || x == "") {
+	    	  <div class="alert alert-warning">
+	    	    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	    	    <strong>Warning!</strong> Description must be filled.
+	    	  </div>
+	        return false;
+	    }
+	    $('.alert').each(function (){
+	    	var x = $(this);
+			setTimeout(function () {x.slideUp("slow");},5000);
+	    })
+	}
+  </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List of all products</title>
 </head>

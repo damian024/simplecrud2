@@ -20,6 +20,13 @@
           }
       });
   }
+  
+  $( document ).ready(function() {
+	    $('.alert').each(function (){
+	    	var x = $(this);
+			setTimeout(function () {x.slideUp("slow");},5000);
+	    })
+	});
   </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List of all products</title>
