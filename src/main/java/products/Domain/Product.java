@@ -1,7 +1,7 @@
 package products.Domain;
 
 public class Product {
-	private String id;
+	private int id;
 	private String description;
 	private String name;
 	private double price;
@@ -26,10 +26,10 @@ public class Product {
 	public void setBought(boolean bought) {
 		this.bought = bought;
 	}
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public double getPrice() {
