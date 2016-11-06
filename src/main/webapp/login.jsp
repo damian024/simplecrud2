@@ -9,6 +9,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type = "text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" >
+  $( document ).ready(function() {
+	    $('.alert').each(function (){
+	    	var x = $(this);
+			setTimeout(function () {x.slideUp("slow");},5000);
+	    })
+	});
+  </script>
   <style type="text/css">
 		.margin-base-vertical {
 			margin: 90px 0;
@@ -39,7 +47,18 @@
 <title>Login Page</title>
 </head>
 <body>
+
 	<div class="container">
+	<c:if test="${!empty param.pwderr}">
+		<div class="alert alert-danger fade-in">
+			<strong>Error!</strong> Wrong password or username.
+		</div>
+	</c:if>
+	<c:if test="${!empty param.unlogged}">
+		<div class="alert alert-success fade-in">
+			<strong>Success!</strong> You are unlogged now.
+		</div>
+	</c:if>
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 panel panel-default">
 			<h1 class="margin-base-vertical">Login page</h1>

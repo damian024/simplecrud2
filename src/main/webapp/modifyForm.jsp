@@ -51,6 +51,18 @@
 	.padding-base-bottom{
 		padding-bottom : 50px;
 	}
+	.userbox{
+		position:fixed;
+		right:0;
+		padding-left:10px;
+		display: inline-block;
+		text-align: center;
+		color: white;
+	}
+	function Logout()
+  {
+	  $('#logout').submit();
+  }
 	
   </style>
   <script type = "text/javascript">
@@ -84,16 +96,21 @@
 		    return false;
 	    }
 	    	
-	    $('.alert').each(function (){
+	    setTimeout(function (){$('.alert').each(function (){
 	    	var x = $(this);
 			setTimeout(function () {x.slideUp("slow");},5000);
-	    });
+	    });},100);
 	}
   </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List of all products</title>
 </head>
 <body>
+<div class="userbox">
+	<form action="LogoutServlet" method="post" id="logout"></form>
+	<div><a href="javascript:Logout()"><img src="http://icons.iconarchive.com/icons/saki/nuoveXT-2/48/Actions-stop-icon.png" alt='logout'></a></div>
+	<div><div>Logged as:</div><b><%= session.getAttribute("user") %></b></div>
+</div> 
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3 panel panel-default">

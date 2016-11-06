@@ -50,6 +50,13 @@
 		font-weight: 400;
 		font-size: 40px;
 	}
+	.userbox{
+		position:fixed;
+		right:0;
+		padding-left:10px;
+		display: inline-block;
+		text-align: center;
+	}
 	
   </style>
   
@@ -71,11 +78,21 @@
 			setTimeout(function () {x.slideUp("slow");},5000);
 	    })
 	});
+  
+  function Logout()
+  {
+	  $('#logout').submit();
+  }
   </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List of all products</title>
 </head>
 <body>
+<div class="userbox">
+	<form action="LogoutServlet" method="post" id="logout"></form>
+	<div><a href="javascript:Logout()"><img src="http://icons.iconarchive.com/icons/saki/nuoveXT-2/48/Actions-stop-icon.png" alt='logout'></a></div>
+	<div><div>Logged as:</div><b><%= session.getAttribute("user") %></b></div>
+</div>  
 	<div class="container padding-base-top padding-base-bottom2">
 		<div class="row ">
 				<jsp:useBean id="product" class="com.kreatorek.products.Domain.Product" scope="session" />

@@ -35,17 +35,19 @@ public class LoginServlet extends HttpServlet {
 			
 			if(userID.equals(user) && password.equals(pwd)){
 				HttpSession session = request.getSession();
-				session.setAttribute("user", "Pankaj");
+				session.setAttribute("user", "Damian");
 				//setting session to expiry in 30 mins
 				session.setMaxInactiveInterval(30*60);
 				Cookie userName = new Cookie("user", user);
 				userName.setMaxAge(30*60);
 				response.addCookie(userName);
+				//sending notification to listAll
 				response.sendRedirect("listAll.jsp?logged=true");
 			}else{
-				RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
-				PrintWriter out= response.getWriter();
-				out.println("<font color=red>Either user name or password is wrong.</font>");
+				
+				//Wrong name
+				//sending notification to login page
+				RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp?pwderr=true");
 				rd.include(request, response);
 			}
 
