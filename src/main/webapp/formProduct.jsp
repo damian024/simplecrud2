@@ -14,7 +14,7 @@
 
 <form action="addProduct.jsp">
 
-  Name :<input type="text"  name="name" value="${product.name}" /><br />
+  Name :<input type="text"  name="name" value="${product.getName()}" /><br />
   Description :<input type="text" name="description" value="${product.description}" /><br />
   Price :<input type="text"  name="price" value="${product.price}" /><br />
   <input type="submit" value=" OK ">

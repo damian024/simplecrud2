@@ -5,6 +5,7 @@
 <web-app>
     <display-name>Introduction to JEE</display-name>
     <description>Some description</description>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>

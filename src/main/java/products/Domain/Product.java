@@ -1,11 +1,11 @@
 package products.Domain;
 
-import java.text.DecimalFormat;
-
 public class Product {
+	private String id;
 	private String description;
 	private String name;
-	private DecimalFormat price;
+	private double price;
+	private boolean bought;
 	
 	public String getDescription() {
 		return description;
@@ -19,10 +19,23 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public DecimalFormat getPrice() {
+
+	public boolean getBought() {
+		return bought;
+	}
+	public void setBought(boolean bought) {
+		this.bought = bought;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(DecimalFormat price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	

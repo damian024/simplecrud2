@@ -6,9 +6,13 @@ import java.util.List;
 import products.Domain.Product;
 
 public class StorageService implements IStorageService<Product> {
-
+	private List<Product> db = new ArrayList<Product>();
+	
 	@Override
 	public void Add(Product toAdd) {
+		
+		
+		db.add(toAdd);
 		// TODO Auto-generated method stub
 		
 	}
@@ -27,8 +31,7 @@ public class StorageService implements IStorageService<Product> {
 
 	@Override
 	public List<Product> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return db;
 	}
 
 
