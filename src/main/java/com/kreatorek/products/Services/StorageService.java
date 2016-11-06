@@ -22,11 +22,18 @@ public class StorageService implements IStorageService<Product> {
 	}
 
 	@Override
-	public void Modify(Product modifyied) {
-		int _id = modifyied.getId();
-		Delete(_id);
-		db.add(modifyied);
-		
+	public void Modify(Product modyfied) {
+		int _id = modyfied.getId();
+		for(int i =0; i< db.size(); i++)
+		{
+			if(db.get(i).getId() == _id)
+			{
+				db.get(i).setDescription(modyfied.getDescription());
+				db.get(i).setPrice(modyfied.getPrice());
+				db.get(i).setName(modyfied.getName());
+				return;
+			}
+		}
 	}
 
 	@Override

@@ -30,7 +30,7 @@
 		margin: 90px 0;
 	}
 	html {
-		background: url(http://b3.pinger.pl/981b2bf2df479c3b0141c0049779150a/background.jpg) no-repeat center center fixed; 
+		background: url(http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/07/white-background-5.jpg) no-repeat center center fixed; 
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -57,7 +57,7 @@
 		padding-right:15px;
 		display: inline-block;
 		text-align: center;
-		color: white;
+		color: black;
 	}
 	function Logout()
   {
@@ -76,7 +76,7 @@
 	    var x = $('#usr').val();
 	    function WarningAlert(text)
 	    {
-	    	$('body').prepend($('<div class="alert alert-warning">'+
+	    	$('.container').prepend($('<div class="alert alert-warning">'+
 	  	    	  //'<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;'+'</' + 'a' + '>'+
 		    	  '<strong>Warning!'+'</' + 'strong' + '> ' + text +'</' + 'div>'));
 	    }

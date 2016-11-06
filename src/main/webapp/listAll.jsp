@@ -18,6 +18,13 @@
 	  width: 100%;
 	  padding: 0;
 	}
+	html {
+		background: url(http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/07/white-background-5.jpg) no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
 	 
 	.row-fluid {height: 100%; display:table-cell; vertical-align: middle;}
 	 
@@ -130,7 +137,7 @@
 					</c:when>
 				</c:choose>
 				
-				<table class="table table-striped">
+				<table class="table table-striped panel">
 				    <thead>
 				      <tr>
 				        <th>Name</th>
