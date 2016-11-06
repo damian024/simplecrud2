@@ -54,7 +54,7 @@
 	.userbox{
 		position:fixed;
 		right:0;
-		padding-left:10px;
+		padding-right:15px;
 		display: inline-block;
 		text-align: center;
 		color: white;
@@ -67,6 +67,11 @@
   </style>
   <script type = "text/javascript">
   function validateForm() {
+	  
+		 setTimeout(function (){$('.alert').each(function (){
+		    	var c = $(this).slideUp("slow");
+		    	console.log("cosiek");
+		 });},5000);
 	    var regexp = "^[0-9]+(\.[0-9]{1,2})?$";
 	    var x = $('#usr').val();
 	    function WarningAlert(text)
@@ -96,10 +101,6 @@
 		    return false;
 	    }
 	    	
-	    setTimeout(function (){$('.alert').each(function (){
-	    	var x = $(this);
-			setTimeout(function () {x.slideUp("slow");},5000);
-	    });},100);
 	}
   </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

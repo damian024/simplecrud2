@@ -53,7 +53,7 @@
 	.userbox{
 		position:fixed;
 		right:0;
-		padding-left:10px;
+		padding-right:15px;
 		display: inline-block;
 		text-align: center;
 	}
